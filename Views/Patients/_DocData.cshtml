@@ -1,0 +1,41 @@
+﻿@{
+	Patient patient = (Patient)ViewBag.CurrentDept;
+}
+<link href="~/css/_docdata.css" rel="stylesheet" />
+<div class="row">
+	<dl class="col-7 row">
+		<dt class="col-2">@Html.DisplayNameFor(d=>patient.PatientId)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>patient.PatientId)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>patient.FirstName)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>patient.FirstName) </dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>patient.LastName)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>patient.LastName)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>patient.DateOfBirth)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>patient.DateOfBirth)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>patient.Address)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>patient.Address)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>patient.PhoneNumber)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>patient.PhoneNumber)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>patient.Email)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>patient.Email)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>patient.CreatedAt)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>patient.CreatedAt)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>patient.UpdatedAt)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>patient.UpdatedAt)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>patient.Doctors)</dt>
+		<dd class="col-10">@Model.Doctors.FirstName @Model.Doctors.LastName (@Model.Doctors.Specialization)</dd>
+
+	</dl>
+
+	<img src="@Model.ImagePath" class="card col-4" style="object-fit:contain" />
+</div>
+

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Patient>
+<style>
+    .card-appointment {
+        border: 1px solid #28a745;
+        box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        border-radius: 5px;
+        width: 250px;
+        display: inline-block;
+        margin: 10px;
+    }
+
+        .card-appointment:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .card-appointment .card-header {
+            background-color: #2768b5;
+            color: #fff;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .card-appointment .card-body img {
+            width: 50%;
+            height: auto;
+        }
+
+        .card-appointment .card-footer {
+            background-color: #f8f9fa;
+            padding: 10px;
+        }
+
+        .card-appointment .card-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .card-appointment .card-text {
+            color: #6c757d;
+        }
+</style>
+
+<h1 class="text-center alert alert-success ">Appointments</h1>
+<form method="get" asp-controller="Appointments" asp-action="GetIndexView">
+    <div class="input-group">
+        <input type="text" name="search" value="@ViewBag.Search" />
+        <button type="submit" class="btn btn-secondary input-group-append"><i class="bi bi-search"></i></button>
+    </div>
+</form>
+@if (Model.Count() > 0)
+{
+    @foreach (var item in Model)
+    {
+        <div class="card-appointment border-success bg-transparent mb-2 text-dark text-center" style="display:inline-block">
+            <div class="card-header">
+                @item.FirstName @item.LastName
+            </div>
+            <div class="card-body">
+                <img src="@item.ImagePath" />
+            </div>
+            <div class="card-footer">
+                <div class="card-title">@item.Address</div>
+                <div class="card-text">Appointment at @item.UpdatedAt.ToShortDateString()</div>
+            </div>
+        </div>
+    }
+}

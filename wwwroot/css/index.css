@@ -1,0 +1,24 @@
+﻿.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    max-width: 18rem;
+}
+
+.card-header {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+.card-footer {
+    background-color: #f1f1f1;
+    font-size: 14px;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 100%;
+}

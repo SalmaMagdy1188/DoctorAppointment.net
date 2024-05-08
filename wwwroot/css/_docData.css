@@ -1,0 +1,19 @@
+﻿.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-2 {
+    width: 20%;
+    text-align: right;
+    font-weight: bold;
+}
+
+.col-10 {
+    width: 80%;
+}
+
+.card {
+    max-width: 18rem;
+    object-fit: contain;
+}

@@ -1,0 +1,46 @@
+﻿@{
+	Doctor doctor = (Doctor)ViewBag.CurrentDept;
+}
+<link href="~/css/_docdata.css" rel="stylesheet" />
+
+<div class="row">
+	<dl class="col-7 row">
+		<dt class="col-2">@Html.DisplayNameFor(d=>doctor.DoctorId)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>doctor.DoctorId)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>doctor.FirstName)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>doctor.FirstName) </dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>doctor.LastName)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>doctor.LastName)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>doctor.Specialization)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>doctor.Specialization)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>doctor.PhoneNumber)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>doctor.PhoneNumber)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>doctor.Email)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>doctor.Email)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>doctor.AvailableAt)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>doctor.AvailableAt)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(d=>doctor.IsActive)</dt>
+		<dd class="col-10">@Html.DisplayFor(d=>doctor.IsActive)</dd>
+	</dl>
+
+	<img src="@Model.ImagePath" class="card col-4" style="object-fit:contain" />
+</div>
+
+<ul class="col-4 list-group">
+	<li class="list-group-item active">Patients</li>
+	@foreach (var patient in doctor.Patients)
+	{
+		<a asp-controller="Patients" asp-action="GetDetailsView" asp-route-id="@patient.PatientId" style="text-decoration:none">
+		<li class="list-group-item list-group-item-action">
+				@patient.FirstName @patient.LastName 
+		</li>
+		</a>
+	}
+</ul>

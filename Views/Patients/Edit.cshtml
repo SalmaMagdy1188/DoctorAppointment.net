@@ -1,0 +1,34 @@
+﻿@model Patient
+<h1 class="alert alert-success text-center">Edit Patient</h1>
+
+<div class="row">
+	<form class="col-4" method="post" asp-controller="Patients" asp-action="EditCurrent" enctype="multipart/form-data">
+		<div asp-Validation-summary="ModelOnly" class="text-danger"></div>
+		<input type="hidden" asp-for="PatientId" />
+		<input type="hidden" asp-for="ImagePath" />
+
+		<partial name="_DoctData" />
+		<div>
+			<lable>Doctors</lable>
+			<select asp-for="DoctorId" asp-items="@(new SelectList(ViewBag.AllDoctors, "DoctorId", "Specialization"))" class="form-control">
+				<option selected disabled>Select..</option>
+			</select>
+			<span asp-validation-for="DoctorId" class="text-danger"></span>
+		</div>
+		
+		<button type="submit" class="btn btn-primary mt-2">Edit</button>
+
+	</form>
+
+	<img src="@Model.ImagePath" id="patImage" class="col-4 card" style="object-fit:contain" />
+
+</div>
+<a asp-controller="Patients" asp-action="GetIndexView"><i class="bi bi-backspace"></i>  Back to List</a>
+
+@section Scripts{
+	<script>
+		function SetImgSrc() {
+			document.getElementById("patImage").src = window.URL.createObjectURL(document.getElementById("imageFormFile").files[0]);
+		}
+	</script>
+}

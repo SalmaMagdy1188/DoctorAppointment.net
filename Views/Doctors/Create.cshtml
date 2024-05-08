@@ -1,0 +1,23 @@
+﻿@model Doctor
+<h1 class="alert alert-success text-center">Create New Doctor</h1>
+
+<div class="row">
+	<form class="col-4" method="post" asp-controller="Doctors" asp-action="AddNew" enctype="multipart/form-data">
+		<div asp-Validation-summary="ModelOnly" class="text-danger"></div>
+		<partial name="_DoctData" />
+
+		<button type="submit" class="btn btn-primary mt-2">Add</button>
+	</form>
+
+	<img src="" id="docImage" class="col-4 card" style="object-fit:contain" />
+
+</div>
+<a asp-controller="Doctors" asp-action="GetIndexView"><i class="bi bi-backspace"></i>  Back to List</a>
+
+@section Scripts{
+	<script>
+		function SetImgSrc() {
+			document.getElementById("docImage").src = window.URL.createObjectURL(document.getElementById("imageFormFile").files[0]);
+		}
+	</script>
+}

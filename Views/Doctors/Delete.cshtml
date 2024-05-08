@@ -1,0 +1,9 @@
+﻿@model Doctor
+<h1 class="alert alert-danger">Are You Sure You Want To Delete This?</h1>
+<partial name="_DocData" />
+
+<form method="post" asp-controller="Doctors" asp-action="DeleteCurrent">
+		<input type="hidden" asp-for="DoctorId" />
+		<button type="submit" class="btn btn-danger">Delete</button>
+</form>
+<a asp-controller="Doctors" asp-action="GetIndexView"><i class="bi bi-backspace"></i>  Back to List</a>
